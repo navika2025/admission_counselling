@@ -1,12 +1,14 @@
 from django.db import models
 
-from counselling.common.models import Page
-from counselling.counselling.models import BaseModel
+from counselling.models import BaseModel
 
-# Create your models here.
+from common.models import Page
+
+
+
 class AboutUsPage(BaseModel):
     page = models.OneToOneField(
-        Page,
+        "common.Page",
         on_delete=models.CASCADE,
         related_name="about_page"
     )

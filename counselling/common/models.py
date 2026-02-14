@@ -1,8 +1,8 @@
 from django.db import models
-from counselling.counselling.models import BaseModel, SEOModel
 from django.utils.text import slugify
 
-# Create your models here.
+from counselling.models import BaseModel, SEOModel
+
 class Page(BaseModel, SEOModel):
     title = models.CharField(
         max_length=150
