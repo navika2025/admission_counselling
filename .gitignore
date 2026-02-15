@@ -1,4 +1,16 @@
 # Virtual environments
 venv/
 .venv/
+env/
 menv/
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*/__pycache__/
+
+# Django
+db.sqlite3
+*.log
+media/
