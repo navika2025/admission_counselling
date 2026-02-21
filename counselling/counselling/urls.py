@@ -24,4 +24,5 @@ urlpatterns = [
     # path('', include('contactus.urls')),
     # path('', include('testimonials.urls')),
     # path('', include('ytdata.urls')),
+    # path('', include('courses.urls')),
 ]
