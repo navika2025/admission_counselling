@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from django.contrib import admin
 from aboutus.models import AboutUsPage, OurStorySection, OurCoreValue, OurTeamMember
 
 
