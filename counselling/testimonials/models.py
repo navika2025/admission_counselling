@@ -32,11 +32,7 @@ class Testimonial(BaseModel):
         max_length=100, 
         verbose_name="Student Name"
     )
-    collegename = models.CharField(
-        max_length=100, 
-        
-        verbose_name="College Name"
-    )
+   
     course_college = models.CharField(
         max_length=200, 
         verbose_name="Cousre and College name",
