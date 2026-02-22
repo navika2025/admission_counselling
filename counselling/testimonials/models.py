@@ -32,11 +32,17 @@ class Testimonial(BaseModel):
         max_length=100, 
         verbose_name="Student Name"
     )
+    collegename = models.CharField(
+        max_length=100, 
+        
+        verbose_name="College Name"
+    )
     course_college = models.CharField(
         max_length=200, 
         verbose_name="Cousre and College name",
         help_text="B.Tech CSE, IIT Bombay"
     )
+    
     batch = models.CharField(
         max_length=50, 
         verbose_name="Batch"
@@ -46,6 +52,7 @@ class Testimonial(BaseModel):
         blank=True, null=True,
         verbose_name="Student Photo"
     )
+    
     review = models.TextField(
         verbose_name="Review Text"
     )
@@ -61,7 +68,6 @@ class Testimonial(BaseModel):
         default=False
     )
 
-
     class Meta:
         verbose_name = "Testimonial"
         verbose_name_plural = "Testimonials"
@@ -69,4 +75,4 @@ class Testimonial(BaseModel):
 
 
     def __str__(self):
-        return f"{self.name} ({self.college})"
+        return f"{self.name} ({self.course_college})"
