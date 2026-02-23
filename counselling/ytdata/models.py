@@ -125,7 +125,7 @@ class Video(BaseModel):
 
 
     def __str__(self):
-        return f"{self.title} {self.videos.name}"
+        return f"{self.title} {self.category.name}"
     
 
 class Playlist(BaseModel):
