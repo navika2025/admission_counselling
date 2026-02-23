@@ -69,4 +69,4 @@ class Testimonial(BaseModel):
 
 
     def __str__(self):
-        return f"{self.name} ({self.college})"
+        return f"{self.name} ({self.course_college})"
