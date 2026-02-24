@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% load static %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,6 +47,41 @@
         <img src="hero.jpg" alt="Education Image">
     </div> -->
 </section>
+
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Counselling{% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        🎓 <span>NEET JEE Counselling</span>
+    </div>
+
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Courses</a>
+        <a href="#">YouTube</a>
+        <a href="#">Testimonials</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
 
 </body>
 </html>
