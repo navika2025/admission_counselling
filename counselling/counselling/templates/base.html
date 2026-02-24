@@ -19,8 +19,8 @@
     </div>
 
     <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
+        <a href="{% url "index" %}">Home</a>
+        <a href="{% url "about_us" %}">About Us</a>
         <a href="#">Courses</a>
         <a href="#">YouTube</a>
         <a href="#">Testimonials</a>
@@ -28,26 +28,70 @@
     </nav>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-left">
-        <h1>Your Path to Success <br>
-            <span>in NEET & JEE</span>
-        </h1>
 
-        <p>
-            Expert counselling and guidance for medical and engineering
-            entrance exams. We help students achieve their dreams.
-        </p>
+{% block content %}
+{% endblock %}
 
-        <button class="btn">Get Started →</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+        <div class="footer-about">
+            <h3>🎓 NEET JEE Counselling</h3>
+            <p>
+                Empowering students to achieve their dreams in medical and
+                engineering education.
+            </p>
+
+            <div class="social-icons">
+                <a href="#">🌐</a>
+                <a href="#">🐦</a>
+                <a href="#">📸</a>
+                <a href="#">▶️</a>
+            </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="{% url "index" %}">Home</a>
+            <a href="{% url "about_us" %}">About Us</a>
+            <a href="#">Courses</a>
+            <a href="#">YouTube</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-links">
+            <h4>Our Services</h4>
+            <a href="#">NEET Counselling</a>
+            <a href="#">JEE Counselling</a>
+            <a href="#">Career Guidance</a>
+            <a href="#">College Selection</a>
+            <a href="#">Document Verification</a>
+            <a href="#">Admission Support</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-subscribe">
+            <h4>Stay Updated</h4>
+            <p>Subscribe to get latest updates on admissions and counselling.</p>
+
+            <div class="subscribe-box">
+                <input type="email" placeholder="Your email">
+                <button>→</button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- <div class="hero-right">
-        <img src="hero.jpg" alt="Education Image">
-    </div> -->
-</section>
-
+    <div class="footer-bottom">
+        © 2026 NEET JEE Counselling. All rights reserved.
+    </div>
+</footer>
 </body>
 </html> {% endcomment %}
 

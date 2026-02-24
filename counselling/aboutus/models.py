@@ -4,8 +4,6 @@ from counselling.models import BaseModel
 
 from common.models import Page
 
-
-
 class AboutUsPage(BaseModel):
     page = models.OneToOneField(
         "common.Page",

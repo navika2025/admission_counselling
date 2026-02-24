@@ -32,11 +32,13 @@ class Testimonial(BaseModel):
         max_length=100, 
         verbose_name="Student Name"
     )
+   
     course_college = models.CharField(
         max_length=200, 
         verbose_name="Cousre and College name",
         help_text="B.Tech CSE, IIT Bombay"
     )
+    
     batch = models.CharField(
         max_length=50, 
         verbose_name="Batch"
@@ -46,6 +48,7 @@ class Testimonial(BaseModel):
         blank=True, null=True,
         verbose_name="Student Photo"
     )
+    
     review = models.TextField(
         verbose_name="Review Text"
     )
@@ -60,7 +63,6 @@ class Testimonial(BaseModel):
     is_featured = models.BooleanField(
         default=False
     )
-
 
     class Meta:
         verbose_name = "Testimonial"
