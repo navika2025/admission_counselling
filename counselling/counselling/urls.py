@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include('aboutus.urls')),
     path('', include('contactus.urls')),
     path('', include('common.urls')),
-    # path('', include('testimonials.urls')),a
-    # path('', include('ytdata.urls')),
-    # path('', include('courses.urls')),
+    path('', include('testimonials.urls')),
+    path('', include('ytdata.urls')),
+    path('', include('courses.urls')),
 ]
