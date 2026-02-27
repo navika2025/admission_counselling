@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us | Counselling{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-inner">
+        <h1>Get in Touch</h1>
+        <p>
+            Have questions? Reach out to us and we'll help you begin your wellness journey.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section class="contact-wrapper">
+
+    <!-- FORM -->
+    <div class="contact-form glass-card">
+        <h2>Send us a Message</h2>
+
+        <form id="contactForm" class="premium-form">
+            {% csrf_token %}
+
+            <div class="floating-group">
+                {{ form.name }}
+                <label>Full Name</label>
+                <small class="error" data-error="name"></small>
+            </div>
+
+            <div class="floating-group">
+                {{ form.email }}
+                <label>Email Address</label>
+                <small class="error" data-error="email"></small>
+            </div>
+
+            <div class="floating-group">
+                {{ form.phone_number }}
+                <label>Phone Number</label>
+                <small class="error" data-error="phone_number"></small>
+            </div>
+
+            <div class="floating-group select-group">
+                {{ form.interest }}
+                <label>Interested In</label>
+            </div>
+
+            <div class="floating-group">
+                {{ form.message }}
+                <label>Message</label>
+                <small class="error" data-error="message"></small>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-primary">
+                <span class="btn-text">Send Message</span>
+                <span class="spinner"></span>
+            </button>
+        </form>
+    </div>
+
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+
+        <div class="info-card glass-card">
+            <h3>Phone</h3>
+            <p>{{ contact_page.support_phone_1 }}</p>
+            <p>{{ contact_page.support_phone_2 }}</p>
+        </div>
+
+        <div class="info-card glass-card">
+            <h3>Email</h3>
+            <p>{{ contact_page.support_email_1 }}</p>
+            <p>{{ contact_page.support_email_2 }}</p>
+        </div>
+
+        <div class="info-card glass-card">
+            <h3>Office Location</h3>
+            <p>{{ contact_page.address }}</p>
+        </div>
+
+        <div class="info-card glass-card">
+            <h3>Office Hours</h3>
+
+            <div class="hours-row">
+                <span>Mon – Fri</span>
+                <span>9:00 AM - 7:00 PM</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Saturday</span>
+                <span>10:00 AM - 5:00 PM</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Sunday</span>
+                <span>Closed</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAP ================= -->
+<section class="visit-office">
+    <h2>Visit Our Office</h2>
+
+    <div class="office-map-card glass-card">
+        {% if contact_page.map_embed_url %}
+        <iframe src="{{ contact_page.map_embed_url }}"></iframe>
+        {% endif %}
+        <div class="office-address">
+            {{ contact_page.address }}
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FAQ ================= -->
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    {% for faq in faqs %}
+    <div class="faq-item glass-card">
+        <button class="faq-question">
+            {{ faq.question }}
+            <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-answer">
+            <p>{{ faq.answer }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<div id="toast"></div>
+
+
+<!-- ================= JS ================= -->
+<script>
+const form = document.getElementById("contactForm");
+const btn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    btn.classList.add("loading");
+
+    const formData = new FormData(form);
+
+    fetch("{% url 'contact_ajax' %}",{
+        method:"POST",
+        body:formData,
+        headers:{"X-Requested-With":"XMLHttpRequest"}
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        btn.classList.remove("loading");
+
+        if(data.success){
+            showToast(data.message);
+            form.reset();
+        }else{
+            showErrors(data.errors);
+        }
+    });
+});
+
+function showErrors(errors){
+    document.querySelectorAll(".error").forEach(e=>e.innerText="");
+
+    for(const field in errors){
+        const el=document.querySelector(`[data-error="${field}"]`);
+        if(el) el.innerText=errors[field][0];
+    }
+}
+
+/* FAQ ACCORDION */
+document.querySelectorAll(".faq-question").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        btn.parentElement.classList.toggle("active");
+    });
+});
+
+/* TOAST */
+function showToast(msg){
+    const toast=document.createElement("div");
+    toast.className="toast-msg";
+    toast.innerText=msg;
+    document.getElementById("toast").appendChild(toast);
+    setTimeout(()=>toast.remove(),3000);
+}
+</script>
+
+{% endblock %}

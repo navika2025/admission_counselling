@@ -1,27 +1,159 @@
 {% extends "base.html" %}
 
-
+{% load static %}
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<div class="home-page">
+
+
 <!-- HERO SECTION -->
-
 <section class="hero">
-    <div class="hero-left">
-        <h1>Your Path to Success <br>
-            <span>in NEET & JEE</span>
-        </h1>
+  <div class="container center">
+    <h1>NEET JEE Counselling</h1>
+    <p>
+      Expert guidance for medical and engineering admissions.
+      Start your journey toward your dream college today.
+    </p>
+    <a href="#" class="btn">Get Started</a>
+  </div>
+</section>
 
-        <p>
-            Expert counselling and guidance for medical and engineering
-            entrance exams. We help students achieve their dreams.
-        </p>
 
-        <button class="btn">Get Started →</button>
+
+<!-- WHO WE ARE -->
+<section class="section">
+  <div class="container">
+
+    <div class="center">
+      <h2>Who We Are</h2>
+      <p class="subtitle">
+        We are dedicated professionals committed to helping students navigate
+        medical and engineering entrance exams and admissions.
+      </p>
     </div>
 
-    <div class="hero-right">
-        <img src="hero.jpg" alt="Education Image">
-    </div>  
-    
-</section> 
+    <div class="grid-4">
+
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>Expert Mentors</h3>
+        <p>Experienced professionals guiding your journey</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🏆</div>
+        <h3>Proven Results</h3>
+        <p>Thousands of successful admissions</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📚</div>
+        <h3>Comprehensive Support</h3>
+        <p>From preparation to admission</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🎯</div>
+        <h3>Personalized Guidance</h3>
+        <p>Tailored strategies for each student</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- WHY CHOOSE US -->
+<section class="section light-bg">
+  <div class="container grid-2">
+
+    <div>
+      <img src="https://images.unsplash.com/photo-1574758324765-a29c77fb9c91"
+           class="why-image"
+           alt="Happy Students">
+    </div>
+
+    <div>
+      <h2>Why Choose Us</h2>
+
+      <p class="subtitle">
+        We provide complete support to help you make informed decisions
+        about your future.
+      </p>
+
+      <ul class="check-list">
+        <li>✔ Personalized counselling sessions tailored to individual needs</li>
+        <li>✔ Expert guidance from experienced educators</li>
+        <li>✔ Complete support from exam preparation to admission</li>
+        <li>✔ Updated information on latest exam patterns</li>
+        <li>✔ Assistance with college selection and career planning</li>
+        <li>✔ Support for document verification and admission process</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- VIDEOS -->
+<section class="section">
+  <div class="container">
+
+    <div class="center">
+      <h2>Educational Videos</h2>
+      <p class="subtitle">
+        Watch our comprehensive video guides to help you through the counselling process.
+      </p>
+    </div>
+
+    <div class="grid-4">
+
+      <div class="video-card">
+        <img src="https://images.unsplash.com/photo-1741769766414-188500c6d143" alt="">
+        <span class="duration">15:30</span>
+        <div class="video-content">
+          <h3>NEET Counselling Process Explained</h3>
+          <p>Complete guide to NEET counselling and seat allocation</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="https://images.unsplash.com/photo-1598981457915-aea220950616" alt="">
+        <span class="duration">12:45</span>
+        <div class="video-content">
+          <h3>JEE Main Counselling Tips</h3>
+          <p>Expert tips for JEE Main counselling and college selection</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="https://images.unsplash.com/photo-1673517734605-98d30bc60e90" alt="">
+        <span class="duration">10:20</span>
+        <div class="video-content">
+          <h3>Document Verification Process</h3>
+          <p>What documents you need and how to prepare</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="https://images.unsplash.com/photo-1574758324765-a29c77fb9c91" alt="">
+        <span class="duration">18:15</span>
+        <div class="video-content">
+          <h3>Career Options After NEET/JEE</h3>
+          <p>Explore various career pathways and opportunities</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</div>
+
 {% endblock  %}

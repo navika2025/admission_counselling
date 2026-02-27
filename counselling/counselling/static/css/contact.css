@@ -1,274 +1,154 @@
-/* ================= ROOT ================= */
-
-:root{
-    --primary:#6C5CE7;
-    --primary-dark:#5649c0;
-    --bg:#f5f7fb;
-    --glass:rgba(255,255,255,0.65);
-    --border:rgba(255,255,255,0.4);
-    --text:#1f2937;
-}
+/* GLOBAL */
 
 body{
-    background:var(--bg);
-    font-family:Inter, sans-serif;
-    color:var(--text);
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:#111827;
 }
 
-/* ================= HERO ================= */
-
-.hero{
-    padding:90px 20px 70px;
-    text-align:center;
-    background:
-        radial-gradient(circle at 20% 20%, #e9ecff, transparent),
-        radial-gradient(circle at 80% 40%, #f0eaff, transparent);
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
 }
 
-.hero h1{
-    font-size:44px;
-    font-weight:700;
+.section{
+  padding:100px 0;
 }
 
-.hero p{
-    margin-top:10px;
-    opacity:.7;
+.small{
+  max-width:800px;
 }
 
-/* ================= GLASS CARD ================= */
-
-.glass-card{
-    backdrop-filter: blur(16px);
-    background:var(--glass);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:28px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.35s;
+.center{
+  text-align:center;
 }
 
-.glass-card:hover{
-    transform:translateY(-4px);
+.light-bg{
+  background:#f8fafc;
 }
 
-/* ================= LAYOUT ================= */
 
-.contact-wrapper{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:30px;
+/* HEADER */
+
+.page-header{
+  background:linear-gradient(135deg,#eff6ff,#e0e7ff);
+  padding:110px 0;
 }
 
-.contact-info{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+.page-header h1{
+  font-size:48px;
 }
 
-/* ================= FORM ================= */
 
-.premium-form{
-    display:flex;
-    flex-direction:column;
-    gap:22px;
+/* GRID */
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
 }
 
-/* floating fields */
 
-.floating-group{
-    position:relative;
+/* FORM */
+
+.form-box{
+  background:#f8fafc;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
 }
 
-.floating-group input,
-.floating-group textarea,
-.floating-group select{
-    width:100%;
-    padding:16px 14px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    background:white;
-    outline:none;
-    font-size:15px;
+form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
 }
 
-.floating-group label{
-    position:absolute;
-    left:14px;
-    top:50%;
-    transform:translateY(-50%);
-    background:white;
-    padding:0 6px;
-    color:#777;
-    transition:.25s;
-    pointer-events:none;
+input,select,textarea{
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:14px;
 }
 
-.floating-group input:focus + label,
-.floating-group input:not(:placeholder-shown) + label,
-.floating-group textarea:focus + label,
-.floating-group textarea:not(:placeholder-shown) + label{
-    top:-8px;
-    font-size:12px;
-    color:var(--primary);
+.btn{
+  background:#2563eb;
+  color:white;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* ================= BUTTON ================= */
-
-.btn-primary{
-    background:linear-gradient(135deg,var(--primary),#8a7bff);
-    border:none;
-    color:white;
-    padding:16px;
-    border-radius:12px;
-    font-weight:600;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-    transition:.3s;
+.btn:hover{
+  background:#1d4ed8;
 }
 
-.btn-primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 20px rgba(108,92,231,.3);
+
+/* INFO CARDS */
+
+.info-card{
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:15px;
 }
 
-/* spinner */
+.blue{background:#eff6ff;}
+.indigo{background:#eef2ff;}
+.purple{background:#f5f3ff;}
 
-.spinner{
-    width:20px;
-    height:20px;
-    border:3px solid rgba(255,255,255,.4);
-    border-top:3px solid white;
-    border-radius:50%;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    animation:spin .8s linear infinite;
-    opacity:0;
+
+/* OFFICE HOURS */
+
+.office-hours{
+  margin-top:20px;
+  padding:30px;
+  background:linear-gradient(135deg,#2563eb,#4f46e5);
+  color:white;
+  border-radius:14px;
 }
-
-.btn-primary.loading .spinner{
-    opacity:1;
-}
-
-.btn-primary.loading .btn-text{
-    opacity:0;
-}
-
-@keyframes spin{
-    to{transform:translate(-50%,-50%) rotate(360deg);}
-}
-
-/* ================= INFO ================= */
 
 .hours-row{
-    display:flex;
-    justify-content:space-between;
-    margin-top:8px;
-    font-size:14px;
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.3);
 }
 
-/* ================= MAP ================= */
-
-.visit-office{
-    max-width:1000px;
-    margin:60px auto;
-    text-align:center;
+.hours-row:last-child{
+  border:none;
 }
 
-.office-map-card iframe{
-    width:100%;
-    height:350px;
-    border:none;
-    border-radius:12px;
+
+/* MAP */
+
+.map-box{
+  height:350px;
+  background:#e5e7eb;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
 }
 
-.office-address{
-    margin-top:12px;
-    opacity:.7;
+
+/* FAQ */
+
+.faq-card{
+  background:#f8fafc;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
 }
 
-/* ================= FAQ ================= */
 
-.faq-section{
-    max-width:900px;
-    margin:80px auto;
-    padding:0 20px;
-}
-
-.faq-item{
-    margin-bottom:16px;
-}
-
-.faq-question{
-    width:100%;
-    background:none;
-    border:none;
-    font-size:17px;
-    font-weight:600;
-    display:flex;
-    justify-content:space-between;
-    cursor:pointer;
-}
-
-.faq-answer{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease;
-    opacity:.75;
-}
-
-.faq-item.active .faq-answer{
-    max-height:200px;
-    margin-top:12px;
-}
-
-.faq-icon{
-    font-size:22px;
-    transition:.3s;
-}
-
-.faq-item.active .faq-icon{
-    transform:rotate(45deg);
-}
-
-/* ================= TOAST ================= */
-
-#toast{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:9999;
-}
-
-.toast-msg{
-    background:#111;
-    color:white;
-    padding:14px 18px;
-    margin-top:10px;
-    border-radius:10px;
-    animation:slideIn .35s ease;
-}
-
-@keyframes slideIn{
-    from{transform:translateX(40px);opacity:0}
-    to{transform:translateX(0);opacity:1}
-}
-
-/* ================= MOBILE ================= */
+/* RESPONSIVE */
 
 @media(max-width:900px){
-
-.contact-wrapper{
+  .grid-2{
     grid-template-columns:1fr;
-}
-
-.hero h1{
-    font-size:34px;
-}
-
+  }
 }

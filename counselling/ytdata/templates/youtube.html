@@ -1,1 +1,182 @@
 {% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href={% static 'css/yt.css' %}>
+
+<!-- HEADER -->
+<section class="youtube-header">
+  <div class="container">
+    <h1>🎬 Educational Videos</h1>
+    <p>
+      Watch our comprehensive video guides to help you through the counselling process
+      and make informed decisions.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container stats-grid">
+
+    <div class="stat">
+      <h3>150+</h3>
+      <p>Videos</p>
+    </div>
+
+    <div class="stat">
+      <h3>2M+</h3>
+      <p>Views</p>
+    </div>
+
+    <div class="stat">
+      <h3>50K+</h3>
+      <p>Subscribers</p>
+    </div>
+
+    <div class="stat">
+      <h3>Weekly</h3>
+      <p>New Content</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORY FILTER (STATIC) -->
+<section class="category-section">
+  <div class="container category-buttons">
+    <button class="active">All</button>
+    <button>NEET</button>
+    <button>JEE</button>
+    <button>Counselling Tips</button>
+    <button>College Reviews</button>
+    <button>Success Stories</button>
+  </div>
+</section>
+
+<!-- VIDEO GRID -->
+<section class="section">
+  <div class="container video-grid">
+
+    <!-- VIDEO CARD -->
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1741769766414-188500c6d143?w=800">
+        <span class="category">NEET</span>
+        <span class="duration">15:30</span>
+      </div>
+      <div class="video-info">
+        <h3>NEET Counselling Process 2024 - Complete Guide</h3>
+        <p>Step-by-step guide to NEET counselling and seat allocation.</p>
+        <span>125K views</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1598981457915-aea220950616?w=800">
+        <span class="category">JEE</span>
+        <span class="duration">12:45</span>
+      </div>
+      <div class="video-info">
+        <h3>JEE Main Counselling Tips & College Selection</h3>
+        <p>Expert tips for choosing the right engineering college.</p>
+        <span>98K views</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1673517734605-98d30bc60e90?w=800">
+        <span class="category">Counselling Tips</span>
+        <span class="duration">10:20</span>
+      </div>
+      <div class="video-info">
+        <h3>Document Verification Process</h3>
+        <p>Essential documents required for counselling.</p>
+        <span>76K views</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1574758324765-a29c77fb9c91?w=800">
+        <span class="category">NEET</span>
+        <span class="duration">18:15</span>
+      </div>
+      <div class="video-info">
+        <h3>Career Options After NEET</h3>
+        <p>Explore career pathways beyond MBBS.</p>
+        <span>142K views</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1598981457915-aea220950616?w=800">
+        <span class="category">College Reviews</span>
+        <span class="duration">22:30</span>
+      </div>
+      <div class="video-info">
+        <h3>IIT vs NIT vs IIIT</h3>
+        <p>Comprehensive comparison of top institutes.</p>
+        <span>215K views</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1741769766414-188500c6d143?w=800">
+        <span class="category">Success Stories</span>
+        <span class="duration">14:55</span>
+      </div>
+      <div class="video-info">
+        <h3>From NEET to AIIMS</h3>
+        <p>Inspiring journey of a successful student.</p>
+        <span>189K views</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe">
+  <div class="container center">
+    <h2>Subscribe to Our Channel</h2>
+    <p>Get latest updates on NEET/JEE counselling and expert tips.</p>
+    <a href="#" class="subscribe-btn">Subscribe Now</a>
+  </div>
+</section>
+
+<!-- PLAYLISTS -->
+<section class="playlist-section">
+  <div class="container">
+
+    <h2 class="section-title">Popular Playlists</h2>
+
+    <div class="playlist-grid">
+
+      <div class="playlist-card">
+        <h3>NEET Complete Series</h3>
+        <p>45 videos covering everything about NEET counselling</p>
+        <button>Watch Playlist →</button>
+      </div>
+
+      <div class="playlist-card">
+        <h3>JEE Counselling Guide</h3>
+        <p>38 videos on JEE counselling</p>
+        <button>Watch Playlist →</button>
+      </div>
+
+      <div class="playlist-card">
+        <h3>Success Stories</h3>
+        <p>25 inspiring student journeys</p>
+        <button>Watch Playlist →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
