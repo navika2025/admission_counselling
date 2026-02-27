@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us | Counselling{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<div class="contact-page">
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container center">
+      <h1>Get in Touch</h1>
+      <p>
+        Have questions? Reach out to us and we'll help you get started on your journey.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- CONTACT FORM + INFO -->
+  <section class="section">
+    <div class="container grid-2">
+
+      <!-- CONTACT FORM -->
+      <div class="form-box">
+
+        <h2>💬 Send us a Message</h2>
+
+        <form>
+
+          <label>Full Name *</label>
+          <input type="text" placeholder="Enter your name" required>
+
+          <label>Email Address *</label>
+          <input type="email" placeholder="your.email@example.com" required>
+
+          <label>Phone Number *</label>
+          <input type="tel" placeholder="+91 1234567890" required>
+
+          <label>Interested In *</label>
+          <select>
+            <option>NEET Counselling</option>
+            <option>JEE Counselling</option>
+            <option>Both NEET & JEE</option>
+            <option>Other</option>
+          </select>
+
+          <label>Message *</label>
+          <textarea rows="4" placeholder="Tell us about your requirements..." required></textarea>
+
+          <button type="submit" class="btn">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+
+      <!-- CONTACT INFO -->
+      <div>
+
+        <h2>Contact Information</h2>
+
+        <div class="info-card blue">
+          <h3>📞 Phone</h3>
+          <p>+91 98765 43210</p>
+          <p>+91 98765 43211</p>
+          <small>Call us for immediate assistance</small>
+        </div>
+
+        <div class="info-card indigo">
+          <h3>📧 Email</h3>
+          <p>info@neetjeecounselling.com</p>
+          <p>support@neetjeecounselling.com</p>
+          <small>We'll respond within 24 hours</small>
+        </div>
+
+        <div class="info-card purple">
+          <h3>📍 Office Location</h3>
+          <p>
+            123, Education Hub, MG Road,<br>
+            Bangalore, Karnataka 560001<br>
+            India
+          </p>
+          <small>Visit us for in-person counselling</small>
+        </div>
+
+
+        <!-- OFFICE HOURS -->
+        <div class="office-hours">
+          <h3>🕒 Office Hours</h3>
+
+          <div class="hours-row">
+            <span>Monday - Friday</span>
+            <strong>9:00 AM - 7:00 PM</strong>
+          </div>
+
+          <div class="hours-row">
+            <span>Saturday</span>
+            <strong>10:00 AM - 5:00 PM</strong>
+          </div>
+
+          <div class="hours-row">
+            <span>Sunday</span>
+            <strong>Closed</strong>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MAP -->
+  <section class="section light-bg">
+    <div class="container center">
+      <h2>Visit Our Office</h2>
+
+      <div class="map-box">
+        <p>
+          📍 123, Education Hub, MG Road<br>
+          Bangalore, Karnataka 560001
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container small">
+
+      <h2 class="center">Frequently Asked Questions</h2>
+
+      <div class="faq-card">
+        <h3>How do I schedule a counselling session?</h3>
+        <p>
+          You can call us, send an email, or fill out the contact form above.
+          Our team will get back to you within 24 hours.
+        </p>
+      </div>
+
+      <div class="faq-card">
+        <h3>What documents do I need for counselling?</h3>
+        <p>
+          Please bring your exam scorecard, educational certificates, ID proof,
+          and any other relevant documents.
+        </p>
+      </div>
+
+      <div class="faq-card">
+        <h3>Are online counselling sessions available?</h3>
+        <p>
+          Yes! We offer both in-person and online counselling sessions.
+        </p>
+      </div>
+
+      <div class="faq-card">
+        <h3>What are your consultation fees?</h3>
+        <p>
+          Our first consultation is free! Contact us for details.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

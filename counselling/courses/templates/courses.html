@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+
+<div class="courses-page">
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="courses-header">
+    <div class="container">
+      <h1>Our Courses</h1>
+      <p>Explore diverse courses available through NEET and JEE entrance exams.</p>
+    </div>
+  </section>
+
+
+  <!-- ================= NEET SECTION ================= -->
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title green">NEET - Medical Courses</h2>
+      <p class="section-desc">
+        National Eligibility cum Entrance Test for admission to medical and dental courses.
+      </p>
+
+      <div class="course-grid">
+
+        <!-- MBBS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>MBBS</h3>
+            <span class="badge green">5.5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Medicine and Bachelor of Surgery</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Doctor, Surgeon, Medical Researcher</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- BDS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>BDS</h3>
+            <span class="badge green">5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Dental Surgery</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Dentist, Oral Surgeon</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- BAMS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>BAMS</h3>
+            <span class="badge green">5.5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Ayurvedic Medicine and Surgery</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Ayurvedic Doctor, Wellness Consultant</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- BHMS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>BHMS</h3>
+            <span class="badge green">5.5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Homeopathic Medicine and Surgery</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Homeopathic Doctor</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- B.Sc Nursing -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>B.Sc Nursing</h3>
+            <span class="badge green">4 Years</span>
+          </div>
+          <p class="course-desc">Professional nursing education and practice</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Registered Nurse, Healthcare Manager</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- BUMS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>BUMS</h3>
+            <span class="badge green">5.5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Unani Medicine and Surgery</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Unani Doctor</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- B.V.Sc -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>B.V.Sc</h3>
+            <span class="badge green">5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Veterinary Science</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Veterinary Doctor, Animal Researcher</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+        <!-- BNYS -->
+        <div class="course-card green-card">
+          <div class="card-top">
+            <h3>BNYS</h3>
+            <span class="badge green">5.5 Years</span>
+          </div>
+          <p class="course-desc">Bachelor of Naturopathy and Yogic Sciences</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Yoga Therapist, Wellness Expert</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">NEET qualified with PCB subjects</p>
+        </div>
+
+      </div>
+
+      <!-- Top Medical Colleges -->
+      <div class="college-box green-bg">
+        <h3>Top Medical Colleges in India</h3>
+        <div class="college-grid">
+          <div class="college-card"><p>AIIMS New Delhi</p><span>Government</span></div>
+          <div class="college-card"><p>JIPMER Puducherry</p><span>Government</span></div>
+          <div class="college-card"><p>CMC Vellore</p><span>Private</span></div>
+          <div class="college-card"><p>KGMU Lucknow</p><span>Government</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= JEE SECTION ================= -->
+  <section class="section light-bg">
+    <div class="container">
+
+      <h2 class="section-title blue">JEE - Engineering Courses</h2>
+      <p class="section-desc">
+        Joint Entrance Examination for admission to engineering and architecture courses.
+      </p>
+
+      <div class="course-grid">
+
+        <div class="course-card blue-card">
+          <div class="card-top"><h3>B.Tech Computer Science</h3><span class="badge blue">4 Years</span></div>
+          <p class="course-desc">Computer Science and Engineering</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Software Engineer, AI Specialist</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">JEE qualified with PCM</p>
+        </div>
+
+        <div class="course-card blue-card">
+          <div class="card-top"><h3>B.Tech Mechanical</h3><span class="badge blue">4 Years</span></div>
+          <p class="course-desc">Mechanical Engineering</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Mechanical Engineer</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">JEE qualified with PCM</p>
+        </div>
+
+        <div class="course-card blue-card">
+          <div class="card-top"><h3>B.Tech Civil</h3><span class="badge blue">4 Years</span></div>
+          <p class="course-desc">Civil Engineering</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Civil Engineer</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">JEE qualified with PCM</p>
+        </div>
+
+        <div class="course-card blue-card">
+          <div class="card-top"><h3>B.Tech Aerospace</h3><span class="badge blue">4 Years</span></div>
+          <p class="course-desc">Aerospace Engineering</p>
+          <div class="card-divider"></div>
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">Aircraft Designer</p>
+          <div class="card-divider"></div>
+          <p class="label">Eligibility</p>
+          <p class="small-text">JEE qualified with PCM</p>
+        </div>
+
+      </div>
+
+      <!-- Top Engineering Colleges -->
+      <div class="college-box blue-bg">
+        <h3>Top Engineering Colleges in India</h3>
+        <div class="college-grid">
+          <div class="college-card"><p>IIT Bombay</p><span>Government</span></div>
+          <div class="college-card"><p>IIT Delhi</p><span>Government</span></div>
+          <div class="college-card"><p>NIT Trichy</p><span>Government</span></div>
+          <div class="college-card"><p>BITS Pilani</p><span>Private</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= NEED HELP ================= -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center">Need Help Choosing?</h2>
+
+      <div class="help-grid">
+        <div class="help-card">
+          <h3>Course Guidance</h3>
+          <p>Get expert advice on which course matches your interests.</p>
+        </div>
+
+        <div class="help-card">
+          <h3>College Selection</h3>
+          <p>Choose the best college based on your rank.</p>
+        </div>
+
+        <div class="help-card">
+          <h3>Career Planning</h3>
+          <p>Plan your future career path with our counselling support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

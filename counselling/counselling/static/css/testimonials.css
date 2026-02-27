@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.light-bg {
+  background: #f1f5f9;
+}
+
+/* HEADER */
+.testimonials-header {
+  background: linear-gradient(to right, #eef2ff, #e0e7ff);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.testimonials-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.testimonials-header p {
+  color: #6b7280;
+  font-size: 18px;
+}
+
+/* FEATURED */
+.featured-card {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  padding: 60px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.featured-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.featured-text {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.featured-info h3 {
+  margin: 0;
+}
+
+.featured-info span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* SECTION TITLE */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.testimonial-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.stars {
+  color: #facc15;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.testimonial-footer h4 {
+  margin: 0;
+}
+
+.testimonial-footer p {
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.testimonial-footer span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+}
+
+.stat-card {
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.stat-card h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.blue { background: #eff6ff; color: #2563eb; }
+.green { background: #ecfdf5; color: #059669; }
+.indigo { background: #eef2ff; color: #4f46e5; }
+.purple { background: #f5f3ff; color: #7c3aed; }
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .testimonial-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:600px){
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+}
