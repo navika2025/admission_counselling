@@ -115,6 +115,10 @@ class Video(BaseModel):
     order = models.PositiveIntegerField(
         default=0
     )
+    
+    show_on_homepage = models.BooleanField(
+        default=False
+    )
 
 
 
@@ -152,4 +156,4 @@ class Playlist(BaseModel):
 
     def __str__(self):
         return self.title
-
+    
