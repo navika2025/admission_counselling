@@ -2,7 +2,7 @@ from django.contrib import admin
 from testimonials.models import TestimonialPage, Testimonial
 
 # Register your models here.
-class TestimonialInline(admin.TabularInline):
+class TestimonialInline(admin.StackedInline):
     model = Testimonial
     extra = 1
 
