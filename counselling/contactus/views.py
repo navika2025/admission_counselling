@@ -11,7 +11,7 @@ def contact_page_view(request):
     faq = contact_page.faqs.filter(is_active=True)
 
     context = {
-        "contact_page": contact_page,
+        "contact": contact_page,
         "faqs": faq,
         "form": ContactForm(),
     }

@@ -126,8 +126,7 @@ class WhyChooseUsSection(BaseModel):
         upload_to="home/features/",
         blank=True, null=True
     )
-    text = models.CharField(
-        max_length=300
+    text = models.TextField(
     )
     order = models.PositiveIntegerField(
         default=0
