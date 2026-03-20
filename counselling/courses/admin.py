@@ -6,7 +6,7 @@ class ExamcategoryInline(admin.TabularInline):
     model = ExamCategory
     extra = 1
     
-class TopCollegeInline(admin.TabularInline):
+class TopCollegeInline(admin.StackedInline):
     model = TopCollege
     extra = 1
     
@@ -14,7 +14,7 @@ class NeedHelpSectionInline(admin.StackedInline):
     model = NeedHelpSection
     extra = 1
 
-class CourseInline(admin.TabularInline):
+class CourseInline(admin.StackedInline):
     model = Course
     extra = 1
 # @admin.register(TopCollege)
