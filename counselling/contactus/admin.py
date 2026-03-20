@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.http import HttpRequest
 
 from contactus.models import ContactPage, ContactInquiry, FAQ
 
@@ -46,7 +47,9 @@ class ContactPageAdmin(admin.ModelAdmin):
         }),
     )
 
-
+    def has_add_permission(self, request):
+        return False
+    
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
 
@@ -55,6 +58,8 @@ class FAQAdmin(admin.ModelAdmin):
     search_fields = ("question", "answer")
     ordering = ("order",)
     autocomplete_fields = ("contact_page",)
+    
+    
 
 
 @admin.register(ContactInquiry)
