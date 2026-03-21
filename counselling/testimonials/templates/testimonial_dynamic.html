@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/testimonials.css' %}">
+
+<div class="testimonials-page">
+
+<section class="testimonials-header">
+    <div class="container">
+        <h1>Student Success Stories</h1>
+        <p>Hear from students who achieved their dreams with our guidance and support.</p>
+    </div>
+</section>
+
+
+{% if featured %}
+<section class="section">
+    <div class="container">
+        <div class="featured-card">
+
+            <div class="featured-icon">🏆</div>
+
+            <p class="featured-text">
+                {{ featured.review }}
+            </p>
+
+            <div class="featured-info">
+                <h3>{{ featured.name }}</h3>
+                <p>{{ featured.course_college }}</p>
+                <span>{{ featured.batch }}</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<section class="section light-bg">
+    <div class="container">
+        <h2 class="section-title">What Our Students Say</h2>
+
+        <div class="testimonial-grid">
+
+            {% for t in testimonials %}
+                {% if not t.is_featured %}
+                <div class="testimonial-card">
+
+                    <!-- ⭐ Dynamic Stars -->
+                    <div class="stars">
+                        {% for i in "12345" %}
+                            {% if forloop.counter <= t.rating %}
+                                ★
+                            {% else %}
+                                ☆
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <p class="testimonial-text">
+                        {{ t.review }}
+                    </p>
+
+                    <div class="testimonial-footer">
+
+                        {% if t.image %}
+                        <img src="{{ t.image.url }}" alt="{{ t.name }}">
+                        {% endif %}
+
+                        <h4>{{ t.name }}</h4>
+                        <p>{{ t.course_college }}</p>
+                        <span>{{ t.batch }}</span>
+                    </div>
+
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Success by Numbers</h2>
+
+        <div class="stats-grid">
+
+            <div class="stat-card blue">
+                <h3>5000+</h3>
+                <p>Happy Students</p>
+            </div>
+
+            <div class="stat-card green">
+                <h3>98%</h3>
+                <p>Success Rate</p>
+            </div>
+
+            <div class="stat-card indigo">
+                <h3>4.9/5</h3>
+                <p>Average Rating</p>
+            </div>
+
+            <div class="stat-card purple">
+                <h3>100+</h3>
+                <p>Top College Admissions</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</div>
+
+{% endblock %}

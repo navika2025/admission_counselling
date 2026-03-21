@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/yt.css' %}">
+
+<div class="youtube-page">
+
+<section class="youtube-header">
+  <div class="container">
+    <h1>🎬 Educational Videos</h1>
+    <p>
+      Watch our comprehensive video guides to help you through the counselling process
+      and make informed decisions.
+    </p>
+  </div>
+</section>
+
+
+<section class="stats-section">
+  <div class="container stats-grid">
+    {% for stat in stats %}
+    <div class="stat">
+      <h3>{{ stat.value }}</h3>
+      <p>{{ stat.label }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<section class="category-section">
+  <div class="container">
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="videoSearch" placeholder="Search videos...">
+    </div>
+
+    <!-- CATEGORY BUTTONS -->
+    <div class="category-buttons">
+      <button class="active" data-category="all">All</button>
+
+      {% for category in categories %}
+      <button data-category="{{ category.slug }}">{{ category.name }}</button>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container video-grid">
+
+    {% for video in videos %}
+    <a href="{{ video.youtube_url }}" target="_blank" class="video-link">
+      <div class="video-card" data-category="{{ video.category.slug }}">
+
+        <div class="thumb">
+          {% if video.thumbnail %}
+          <img src="{{ video.thumbnail.url }}">
+          {% else %}
+          <img src="https://img.youtube.com/vi/{{ video.youtube_url|cut:'https://www.youtube.com/watch?v=' }}/0.jpg">
+          {% endif %}
+
+          <span class="category">{{ video.category.name }}</span>
+          <span class="duration">{{ video.duration }}</span>
+        </div>
+
+        <div class="video-info">
+          <h3>{{ video.title }}</h3>
+          <p>{{ video.description|truncatewords:15 }}</p>
+
+          {% if video.views %}
+          <span class="views">{{ video.views }}</span>
+          {% endif %}
+        </div>
+
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+  <div class="center" style="margin-top: 30px;">
+    <button id="loadMoreBtn" class="subscribe-btn">Load More</button>
+  </div>
+</section>
+
+
+
+<section class="subscribe">
+  <div class="container center">
+    <h2>Subscribe to Our Channel</h2>
+    <p>Get latest updates on NEET/JEE counselling and expert tips.</p>
+    <a href="#" class="subscribe-btn">Subscribe Now</a>
+  </div>
+</section>
+
+
+<section class="playlist-section">
+  <div class="container">
+    <h2 class="section-title">Popular Playlists</h2>
+
+    <div class="playlist-grid">
+      {% for playlist in playlists %}
+      <div class="playlist-card">
+        <h3>{{ playlist.title }}</h3>
+        <p>{{ playlist.description }}</p>
+        <a href="{{ playlist.playlist_url }}" target="_blank">
+          <button>Watch Playlist →</button>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+
+<!-- ================= CATEGORY FILTER JS ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll(".category-buttons button");
+    const videos = Array.from(document.querySelectorAll(".video-card"));
+    const searchInput = document.getElementById("videoSearch");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+    let activeCategory = "all";
+    let visibleCount = 6;
+
+    // Store original content (important!)
+    videos.forEach(video => {
+        video.querySelectorAll("h3, p").forEach(el => {
+            el.dataset.original = el.innerHTML;
+        });
+    });
+
+    function highlightText(element, searchValue) {
+        const original = element.dataset.original;
+
+        if (!searchValue) {
+            element.innerHTML = original;
+            return;
+        }
+
+        const regex = new RegExp(`(${searchValue})`, "gi");
+        element.innerHTML = original.replace(regex, `<mark>$1</mark>`);
+    }
+
+    function filterVideos() {
+        const searchValue = searchInput.value.toLowerCase();
+
+        let filtered = videos.filter(video => {
+            const categoryMatch = (activeCategory === "all" || video.dataset.category === activeCategory);
+
+            const text = video.innerText.toLowerCase();
+            const searchMatch = text.includes(searchValue);
+
+            return categoryMatch && searchMatch;
+        });
+
+        // Hide all first
+        videos.forEach(video => {
+            video.parentElement.style.display = "none";
+
+            // reset highlights
+            video.querySelectorAll("h3, p").forEach(el => {
+                el.innerHTML = el.dataset.original;
+            });
+        });
+
+        // Show filtered with highlight
+        filtered.slice(0, visibleCount).forEach(video => {
+            video.parentElement.style.display = "block";
+
+            video.querySelectorAll("h3, p").forEach(el => {
+                highlightText(el, searchValue);
+            });
+        });
+
+        // Load more button
+        if (filtered.length > visibleCount) {
+            loadMoreBtn.style.display = "inline-block";
+        } else {
+            loadMoreBtn.style.display = "none";
+        }
+    }
+
+    // CATEGORY CLICK
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            activeCategory = button.dataset.category;
+            visibleCount = 6;
+
+            filterVideos();
+        });
+    });
+
+    // SEARCH
+    searchInput.addEventListener("input", () => {
+        visibleCount = 6;
+        filterVideos();
+    });
+
+    // LOAD MORE
+    loadMoreBtn.addEventListener("click", () => {
+        visibleCount += 3;
+        filterVideos();
+    });
+
+    // INIT
+    filterVideos();
+
+});
+</script>
+
+{% endblock %}

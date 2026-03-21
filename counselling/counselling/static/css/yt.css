@@ -245,3 +245,90 @@ body {
     font-size: 30px;
   }
 }
+
+/* ================= VIDEO LINK FIX ================= */
+
+/* Make entire card clickable without breaking design */
+.video-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+/* ================= FILTER ANIMATION ================= */
+
+/* Smooth hide/show */
+.video-card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+
+/* ================= CATEGORY BUTTON HOVER ================= */
+
+.category-buttons button:hover {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+/* SEARCH BOX */
+.search-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 300px;
+  max-width: 90%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #dc2626;
+}
+
+/* Highlight search text */
+mark {
+  background: #fde047;
+  color: #000;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* ================= RESPONSIVE FIXES ================= */
+
+/* Tablet */
+@media(max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+/* Mobile */
+@media(max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-buttons {
+    flex-wrap: wrap;
+  }
+
+  .youtube-header h1 {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+
+<div class="courses-page">
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="courses-header">
+    <div class="container">
+      <h1>Our Courses</h1>
+      <p>Explore diverse courses available through NEET and JEE entrance exams.</p>
+    </div>
+  </section>
+
+
+  <!-- ================= EXAM CATEGORIES ================= -->
+  {% for category in courses_page.exam_categories.all %}
+  <section class="section {% if forloop.counter|divisibleby:2 %}light-bg{% endif %}">
+    <div class="container">
+
+      <h2 class="section-title {% if category.title == 'NEET' %}green{% else %}blue{% endif %}">
+        {{ category.title }}
+      </h2>
+
+      <p class="section-desc">
+        {{ category.short_description }}
+      </p>
+
+      <!-- COURSES -->
+      <div class="course-grid">
+        {% for course in category.courses.all %}
+        <div class="course-card {% if category.title == 'NEET' %}green-card{% else %}blue-card{% endif %}">
+          
+          <div class="card-top">
+            <h3>{{ course.name }}</h3>
+            <span class="badge {% if category.title == 'NEET' %}green{% else %}blue{% endif %}">
+              {{ course.duration }}
+            </span>
+          </div>
+
+          <p class="course-desc">{{ course.short_description }}</p>
+
+          <div class="card-divider"></div>
+
+          <p class="label">Career Opportunities</p>
+          <p class="small-text">{{ course.career_opportunities }}</p>
+
+          <div class="card-divider"></div>
+
+          <p class="label">Eligibility</p>
+          <p class="small-text">{{ course.eligibility }}</p>
+
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <!-- TOP COLLEGES -->
+      <div class="college-box {% if category.title == 'NEET' %}green-bg{% else %}blue-bg{% endif %}">
+        <h3>Top Colleges</h3>
+
+        <div class="college-grid">
+          {% for college in category.top_colleges.all %}
+          <div class="college-card">
+            <p>{{ college.name }}</p>
+            <span>{{ college.get_college_type_display }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+  {% endfor %}
+
+
+  <!-- ================= NEED HELP ================= -->
+  {% if courses_page.guidance_section %}
+  <section class="section">
+    <div class="container">
+        <h1 class="center">Need Help Choosing?</h1>
+
+
+      <div class="help-grid">
+        {% for help in courses_page.guidance_section.all %}
+        <div class="help-card">
+          <h3>{{ help.title }}</h3>
+          <p>{{ help.description }}</p>
+        </div>
+        {% endfor %}
+
+        {% comment %} <div class="help-card">
+          <h3>Course Guidance</h3>
+          <p>Get expert advice on which course matches your interests.</p>
+        </div> {% endcomment %}
+
+        {% comment %} <div class="help-card">
+          <h3>College Selection</h3>
+          <p>Choose the best college based on your rank.</p>
+        </div>
+
+        <div class="help-card">
+          <h3>Career Planning</h3>
+          <p>Plan your future career path with our counselling support.</p>
+        </div> {% endcomment %}
+
+      </div>
+
+    </div>
+  </section>
+  {% endif %}
+
+</div>
+
+{% endblock %}
+

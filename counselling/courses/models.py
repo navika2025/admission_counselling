@@ -125,7 +125,7 @@ class TopCollege(BaseModel):
 
 
 class NeedHelpSection(BaseModel):
-    courses_page = models.OneToOneField(
+    courses_page = models.ForeignKey(
         CoursesPage,
         on_delete=models.CASCADE,
         related_name="guidance_section"
