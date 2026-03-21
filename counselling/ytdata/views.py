@@ -20,5 +20,5 @@ def youtube(request):
         "playlists": page_obj.playlists.all(),
     }
 
-    # return render(request, "youtube.html", context)
-    return render(request, "youtube_dynamic.html", context)
+    return render(request, "youtube.html", context)
+    # return render(request, "youtube_dynamic.html", context)
