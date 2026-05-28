@@ -4,19 +4,22 @@ from django.views.decorators.http import require_POST
 
 from contactus.models import ContactPage
 from contactus.forms import ContactForm
+from common.models import Page
 
 
 def contact_page_view(request):
+    page = Page.objects.get(slug='contact-us')
     contact_page = get_object_or_404(ContactPage, is_active=True)
     faq = contact_page.faqs.filter(is_active=True)
 
     context = {
-        "contact": contact_page,
+        "page": page,
+        "contact_page": contact_page,
         "faqs": faq,
         "form": ContactForm(),
     }
 
-    return render(request, "contactus.html", context)
+    return render(request, "contact_og.html", context)
 
 
 @require_POST
