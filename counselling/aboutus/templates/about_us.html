@@ -8,7 +8,7 @@
 <div class="about-page">
 
   <!-- PAGE HEADER -->
-  <section class="about-header">
+  <section class="about-header" style="background-image:url('{{ page.banner_image.url }}');">
     <div class="container">
       <h1>About Us</h1>
       <p>
@@ -24,26 +24,9 @@
     <div class="container story-container">
 
       <h2>Our Story</h2>
-
+       {% csrf_token %}
       <p>
-        Founded in 2015, NEET JEE Counselling was born from a simple observation:
-        talented students often struggle not with exams, but with navigating the
-        complex admission process that follows. We saw brilliant minds losing
-        opportunities simply because they lacked proper guidance.
-      </p>
-
-      <p>
-        What started as a small initiative to help local students has grown into a
-        comprehensive counselling service that has guided over 5,000 students
-        toward their dream careers in medicine and engineering. Our team of
-        experienced educators and counsellors brings together decades of expertise
-        in the Indian education system.
-      </p>
-
-      <p>
-        Today, we pride ourselves on being more than just a counselling service.
-        We are mentors, guides, and partners in every student's journey from
-        entrance exam preparation to successful college admission and beyond.
+        {{ story_section.story_text }}
       </p>
 
     </div>
@@ -55,20 +38,21 @@
     <div class="container grid-2">
 
       <div class="card">
-        <h3>Our Vision</h3>
+        <h2>
+          <i class="bi bi-mortarboard-fill vision-icon"></i>
+          Our Vision</h2>
         <p>
-          To be the most trusted partner in every student's journey towards a
-          successful career in medicine and engineering, making quality education
-          accessible to all.
+          {{ story_section.vision_text }}
         </p>
       </div>
 
       <div class="card">
-        <h3>Our Mission</h3>
+        <h2>
+          <i class="bi bi-compass-fill mission-icon"></i>
+          Our Mission
+        </h2>
         <p>
-          To provide personalized, expert guidance that helps students navigate
-          the complexities of entrance exams and admissions with confidence and
-          clarity.
+          {{ story_section.mission_text }}
         </p>
       </div>
 
@@ -80,109 +64,51 @@
   <section class="section">
     <div class="container">
 
-      <h2 class="center">Our Core Values</h2>
-
+      <h2 class="center section-title">Our Core Values</h2>
+      
       <div class="grid-4">
-
+        {% for core in core_values %}
         <div class="value-card blue">
-          <h3>Integrity</h3>
-          <p>Honest and ethical guidance in all our interactions.</p>
+          <h3>{{ core.title }}</h3>
+          <p>{{ core.description }}</p>
         </div>
-
-        <div class="value-card indigo">
-          <h3>Excellence</h3>
-          <p>Committed to delivering the highest quality service.</p>
-        </div>
-
-        <div class="value-card purple">
-          <h3>Empathy</h3>
-          <p>Understanding each student's unique journey.</p>
-        </div>
-
-        <div class="value-card pink">
-          <h3>Innovation</h3>
-          <p>Continuously improving our methods and services.</p>
-        </div>
-
-      </div>
+        {% endfor %}
     </div>
   </section>
 
 
   <!-- TEAM -->
   <section class="section bg-light">
-    <div class="container">
+  <div class="container">
 
-      <h2 class="center">Meet Our Team</h2>
+    <h2 class="center section-title">Meet Our Team</h2>
 
-      <div class="grid-4">
+    <div class="grid-4">
 
-        <div class="team-card">
-          <div class="team-avatar">PS</div>
-          <h4>Dr. Priya Sharma</h4>
-          <p class="role">Chief Counsellor</p>
-          <p class="domain">Medical Admissions</p>
+      {% for team in team_members %}
+      <div class="team-card">
+        <div class="team-avatar">
+          {% if team.image %}
+          <img src="{{ team.image.url }}" alt=" {{ team.name }}">
+          {% else %}
+          {{ team.name|slice:":2"|upper }}
+          {% endif %}
         </div>
-
-        <div class="team-card">
-          <div class="team-avatar">RK</div>
-          <h4>Prof. Rajesh Kumar</h4>
-          <p class="role">Senior Advisor</p>
-          <p class="domain">Engineering Admissions</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">AD</div>
-          <h4>Ms. Anita Desai</h4>
-          <p class="role">Career Counsellor</p>
-          <p class="domain">Career Guidance</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">VS</div>
-          <h4>Mr. Vikram Singh</h4>
-          <p class="role">Admissions Expert</p>
-          <p class="domain">Documentation Support</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">MN</div>
-          <h4>Dr. Meera Nair</h4>
-          <p class="role">NEET Specialist</p>
-          <p class="domain">Medical College Selection</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">AM</div>
-          <h4>Prof. Arjun Menon</h4>
-          <p class="role">JEE Consultant</p>
-          <p class="domain">Engineering Programs</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">KJ</div>
-          <h4>Ms. Kavita Joshi</h4>
-          <p class="role">Student Counsellor</p>
-          <p class="domain">Career Planning</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">SR</div>
-          <h4>Mr. Suresh Reddy</h4>
-          <p class="role">Placement Advisor</p>
-          <p class="domain">Future Opportunities</p>
-        </div>
-
+    
+        
+        <h4>{{ team.name }}</h4>
+        <p class="role">{{ team.designation }}</p>
+        <p class="domain">{{ team.domain }}</p>
       </div>
-    </div>
-  </section>
+      {% endfor %}
 
-
+  </div>
+</section>
   <!-- STATS -->
   <section class="section">
     <div class="container">
 
-      <h2 class="center">Our Impact</h2>
+      <h2 class="center section-title">Our Impact</h2>
 
       <div class="grid-4">
 

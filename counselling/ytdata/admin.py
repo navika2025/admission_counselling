@@ -2,19 +2,19 @@ from django.contrib import admin
 from ytdata.models import VideoStatistic, VideoCategory, Playlist, YouTubePage, Video
 # Register your models here.
 
-class VideoStatisticInline(admin.TabularInline):
+class VideoStatisticInline(admin.StackedInline):
     model = VideoStatistic
     extra = 1
     
-class VideoCategoryInline(admin.TabularInline):
+class VideoCategoryInline(admin.StackedInline):
     model = VideoCategory
     extra = 1
     
-class PlaylistInline(admin.TabularInline):
+class PlaylistInline(admin.StackedInline):
     model = Playlist
     extra = 1
     
-class VideoInline(admin.TabularInline):
+class VideoInline(admin.StackedInline):
     model = Video
     extra = 1
     
