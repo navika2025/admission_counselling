@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'counselling',
     'aboutus',
@@ -139,9 +141,23 @@ STATICFILES_FINDERS = (
     # other finders..
     # "compressor.finders.CompressorFinder",
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR/"media"
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ddbgfq2ct',
+    'API_KEY': '271766837984767',
+    'API_SECRET': 'iQ854dK4gtUyT3ZmgZHG4S0ACDo',
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
