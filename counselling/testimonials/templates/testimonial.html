@@ -11,11 +11,14 @@
 <body>
 
 <!-- HEADER -->
-<section class="testimonials-header">
+<section class="testimonials-header"
+style="background-image: url('{{ page.banner_image.url }}');">
+
     <div class="container">
         <h1>Student Success Stories</h1>
         <p>Hear from students who achieved their dreams with our guidance and support.</p>
     </div>
+
 </section>
 
 <!-- FEATURED TESTIMONIAL -->
@@ -44,83 +47,27 @@
         <div class="testimonial-grid">
 
             <!-- CARD -->
+            {% for testimonial in testimonial %}
             <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
+                <div class="stars">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= testimonial.rating %}
+                            <i class="bi bi-star-fill"></i>
+                        {% else %}
+                            <i class="bi bi-star"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 <p class="testimonial-text">
-                    "Expert advice and personalized support made all the difference.
-                    I highly recommend their services to every JEE aspirant."
+                    {{ testimonial.review }}
                 </p>
                 <div class="testimonial-footer">
-                    <h4>Priya Patel</h4>
-                    <p>B.Tech CSE, IIT Bombay</p>
-                    <span>Class of 2023</span>
+                    <h4>{{ testimonial.name }}</h4>
+                    <p>{{ testimonial.course_college }}</p>
+                    <span>{{ testimonial.batch }}</span>
                 </div>
             </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">
-                    "Professional and caring team! Their insights about different colleges
-                    helped me make an informed decision."
-                </p>
-                <div class="testimonial-footer">
-                    <h4>Amit Kumar</h4>
-                    <p>MBBS, JIPMER</p>
-                    <span>Class of 2022</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">
-                    "The detailed college comparison and career guidance helped me make
-                    the best decision for my future."
-                </p>
-                <div class="testimonial-footer">
-                    <h4>Sneha Reddy</h4>
-                    <p>B.Tech ECE, NIT Trichy</p>
-                    <span>Class of 2023</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">
-                    "Exceptional guidance throughout the counselling process.
-                    They truly care about students' success."
-                </p>
-                <div class="testimonial-footer">
-                    <h4>Arjun Singh</h4>
-                    <p>MBBS, CMC Vellore</p>
-                    <span>Class of 2022</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">
-                    "Their expertise saved me from many mistakes. Grateful for their support!"
-                </p>
-                <div class="testimonial-footer">
-                    <h4>Divya Shah</h4>
-                    <p>B.Arch, NIT Bhopal</p>
-                    <span>Class of 2023</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">
-                    "The counselling sessions were extremely helpful. Highly professional team!"
-                </p>
-                <div class="testimonial-footer">
-                    <h4>Karthik Nair</h4>
-                    <p>MBBS, MAMC Delhi</p>
-                    <span>Class of 2022</span>
-                </div>
-            </div>
-
-        </div>
+            {% endfor %}
     </div>
 </section>
 

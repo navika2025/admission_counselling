@@ -1,154 +1,392 @@
-/* GLOBAL */
+/* ================= GLOBAL ================= */
 
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  color:#111827;
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f8fafc;
+    color:#111827;
 }
 
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-}
-
-.section{
-  padding:100px 0;
-}
-
-.small{
-  max-width:800px;
-}
-
-.center{
-  text-align:center;
-}
-
-.light-bg{
-  background:#f8fafc;
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
 }
 
 
-/* HEADER */
+/* ================= HERO ================= */
 
-.page-header{
-  background:linear-gradient(135deg,#eff6ff,#e0e7ff);
-  padding:110px 0;
+.hero{
+
+    background-size:cover;
+    background-position:center bottom;
+    background-repeat:no-repeat;
+    min-height:500px;
+    padding:90px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background-color:#eef2ff;
+    position:relative;
 }
 
-.page-header h1{
-  font-size:48px;
+.hero-inner{
+    max-width:850px;
 }
 
-
-/* GRID */
-
-.grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
+.hero h1{
+    font-size:58px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#111827;
 }
 
-
-/* FORM */
-
-.form-box{
-  background:#f8fafc;
-  padding:40px;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-form{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-input,select,textarea{
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  font-size:14px;
-}
-
-.btn{
-  background:#2563eb;
-  color:white;
-  padding:14px;
-  border:none;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.btn:hover{
-  background:#1d4ed8;
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#475569;
+    max-width:700px;
+    margin:auto;
 }
 
 
-/* INFO CARDS */
+/* ================= MAIN LAYOUT ================= */
+
+.contact-wrapper{
+    max-width:1200px;
+    margin:90px auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:
+    1.05fr .95fr;
+    gap:40px;
+    align-items:start;
+}
+
+
+/* ================= GLASS CARD ================= */
+
+.glass-card{
+    background:
+    rgba(255,255,255,.92);
+    backdrop-filter:blur(16px);
+    border:
+    1px solid rgba(255,255,255,.5);
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.06);
+}
+
+
+/* ================= FORM ================= */
+
+.contact-form{
+    padding:42px;
+    border-radius:26px;
+}
+
+.contact-form h2{
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.premium-form{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+
+/* INPUTS */
+
+.floating-group{
+    position:relative;
+}
+
+.floating-group input,
+.floating-group textarea,
+.floating-group select{
+    width:100%;
+    padding:14px 16px;
+    min-height:30px;
+    border:
+    1px solid #dbe2ea;
+    border-radius:16px;
+    outline:none;
+    font-size:15px;
+    background:white;
+    box-sizing:border-box;
+    transition:.3s;
+}
+
+.floating-group textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.floating-group input:focus,
+.floating-group textarea:focus,
+.floating-group select:focus{
+    border-color:#2563eb;
+    box-shadow:
+    0 0 0 4px
+    rgba(37,99,235,.08);
+}
+
+
+/* LABELS */
+
+.floating-group label{
+    position:absolute;
+    left:18px;
+    top:-10px;
+    background:white;
+    padding:0 8px;
+    font-size:12px;
+    color:#2563eb;
+}
+
+
+/* BUTTON */
+
+.btn-primary{
+    border:none;
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+    );
+    color:white;
+    padding:18px;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:
+    translateY(-3px);
+    box-shadow:
+    0 15px 30px
+    rgba(37,99,235,.25);
+}
+
+
+/* ================= INFO ================= */
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
 
 .info-card{
-  padding:20px;
-  border-radius:12px;
-  margin-bottom:15px;
+    padding:32px;
+    border-radius:24px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
 }
 
-.blue{background:#eff6ff;}
-.indigo{background:#eef2ff;}
-.purple{background:#f5f3ff;}
+.info-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:5px;
+    height:100%;
+    background:
+    linear-gradient(
+    #2563eb,
+    #4f46e5
+    );
+}
+
+.info-card:hover{
+    transform:
+    translateY(-5px);
+    box-shadow:
+    0 18px 35px
+    rgba(0,0,0,.08);
+}
+
+.info-card h3{
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.info-card p{
+    margin:10px 0;
+    color:#475569;
+    line-height:1.8;
+}
 
 
 /* OFFICE HOURS */
 
-.office-hours{
-  margin-top:20px;
-  padding:30px;
-  background:linear-gradient(135deg,#2563eb,#4f46e5);
-  color:white;
-  border-radius:14px;
-}
-
 .hours-row{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,0.3);
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:
+    1px solid rgba(0,0,0,.08);
 }
 
 .hours-row:last-child{
-  border:none;
+    border:none;
 }
 
 
-/* MAP */
+/* ================= OFFICE ================= */
 
-.map-box{
-  height:350px;
-  background:#e5e7eb;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
+.visit-office{
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px 100px;
+}
+
+.visit-office h2{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:50px;
+}
+
+.office-map-card{
+    overflow:hidden;
+    border-radius:28px;
+    box-shadow:
+    0 20px 40px
+    rgba(0,0,0,.08);
+}
+
+.office-map-card iframe{
+    width:100%;
+    height:500px;
+    border:none;
+}
+
+.office-address{
+    padding:26px;
+    text-align:center;
+    background:white;
+    color:#475569;
 }
 
 
-/* FAQ */
+/* ================= FAQ ================= */
 
-.faq-card{
-  background:#f8fafc;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:20px;
+.faq-section{
+    max-width:1000px;
+    margin:auto;
+    padding:0 24px 100px;
+}
+
+.faq-section h2{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:50px;
+}
+
+.faq-item{
+    border-radius:22px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.faq-question{
+    width:100%;
+    padding:28px;
+    border:none;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align:left;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.35s;
+    background:white;
+}
+
+.faq-answer p{
+    padding:0 28px 28px;
+    margin:0;
+}
+
+.faq-item.active .faq-answer{
+    max-height:300px;
+}
+
+.faq-icon{
+    font-size:24px;
 }
 
 
-/* RESPONSIVE */
+/* ================= TOAST ================= */
 
-@media(max-width:900px){
-  .grid-2{
-    grid-template-columns:1fr;
-  }
+#toast{
+    position:fixed;
+    top:30px;
+    right:30px;
+    z-index:9999;
+}
+
+.toast-msg{
+    background:#111827;
+    color:white;
+    padding:16px 20px;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+    .contact-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero{
+        min-height:300px;
+        padding:60px 20px;
+        background-size:contain;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .contact-form{
+        padding:30px;
+    }
+
+    .visit-office h2,
+    .faq-section h2{
+        font-size:38px;
+    }
+
 }

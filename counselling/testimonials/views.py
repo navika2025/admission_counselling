@@ -1,19 +1,15 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from testimonials.models import TestimonialPage
-
+from common.models import Page
 
 
 def testimonials(request):
-    testimonial_page = TestimonialPage.objects.prefetch_related("testimonials").first()
-    featured = testimonial_page.testimonials.filter(is_featured=True).order_by("-id").first()
-    testimonials = testimonial_page.testimonials.all()
-
+    page = Page.objects.get(slug = 'testimonial')
+    testimonial_page = get_object_or_404(TestimonialPage, is_active = True)
+    testimonial = testimonial_page.testimonials.all()
     context = {
-        "testimonial_page": testimonial_page,
-        "testimonials": testimonials,
-        "featured": featured,
+        "page": page,
+        "testimonial_page" : testimonial_page,
+        "testimonial": testimonial
     }
-
-    return render(request, "testimonial.html", context)
-    return render(request, "testimonial_dynamic.html", context)
+    return render(request, "testimonial.html" , context)

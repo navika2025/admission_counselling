@@ -1,334 +1,497 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8fafc;
+/* GLOBAL */
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f8fafc;
+    color:#111827;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
 }
 
-.section {
-  padding: 80px 0;
+.section{
+    padding:90px 0;
 }
 
-.light-bg {
-  background: #f1f5f9;
-}
-
-.center { text-align: center; }
-
-/* HEADER */
-.youtube-header {
-  background: linear-gradient(to right,#fee2e2,#fbcfe8);
-  padding: 100px 0;
-  text-align: center;
-}
-
-.youtube-header h1 {
-  font-size: 46px;
-}
-
-/* STATS */
-.stats-section {
-  padding: 40px 0;
-  background: white;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  text-align: center;
-}
-
-.stat h3 {
-  font-size: 32px;
-  margin: 0;
-}
-
-/* CATEGORY */
-.category-section {
-  padding: 20px 0;
-  background: #f9fafb;
-}
-
-.category-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.category-buttons button {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  background: white;
-  cursor: pointer;
-}
-
-.category-buttons .active {
-  background: #dc2626;
-  color: white;
-}
-
-/* VIDEO GRID */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 25px;
-}
-
-.video-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
-}
-
-.video-card:hover {
-  transform: translateY(-5px);
-}
-
-.thumb {
-  position: relative;
-}
-
-.thumb img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #dc2626;
-  color: white;
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 6px;
-}
-
-.duration {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: black;
-  color: white;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-}
-
-.video-info {
-  padding: 15px;
-}
-
-.video-info h3 {
-  margin: 0 0 10px;
-}
-
-/* SUBSCRIBE */
-/* ================= SUBSCRIBE SECTION ================= */
-
-.subscribe {
-  background: linear-gradient(135deg, #dc2626, #ec4899);
-  padding: 100px 0;
-  text-align: center;
-  color: white;
-}
-
-.subscribe h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.subscribe p {
-  font-size: 18px;
-  opacity: 0.9;
-  margin-bottom: 30px;
-}
-
-/* Subscribe Button */
-.subscribe-btn {
-  display: inline-block;
-  background: white;
-  color: #dc2626;
-  padding: 16px 40px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.subscribe-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+.center{
+    text-align:center;
 }
 
 
+/* ================= YOUTUBE HEADER ================= */
 
-/* ================= PLAYLIST SECTION ================= */
-
-.playlist-section {
-  padding: 100px 0;
-  background: #f1f5f9;
+.youtube-header{
+    background-size:cover;
+    background-position:center bottom;
+    background-repeat:no-repeat;
+    min-height:500px;
+    padding:100px 0;
+    display:flex;
+    align-items:center;
+    background:#fee2e2;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 60px;
+.youtube-header .container{
+    flex:1;
+    text-align:center;
 }
 
-/* Playlist Grid */
-.playlist-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 40px;
+.youtube-header h1{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    font-size:56px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#111827;
 }
 
-/* Playlist Card */
-.playlist-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: 0.3s;
+.youtube-main-icon{
+    color:#ef4444;
+    font-size:56px;
 }
 
-.playlist-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-.playlist-card h3 {
-  margin-bottom: 12px;
-  font-size: 22px;
-}
-
-.playlist-card p {
-  color: #64748b;
-  margin-bottom: 20px;
-}
-
-/* Playlist Button */
-.playlist-card button {
-  background: none;
-  border: none;
-  color: #dc2626;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.playlist-card button:hover {
-  text-decoration: underline;
+.youtube-header p{
+    font-size:18px;
+    line-height:1.8;
+    max-width:760px;
+    margin:auto;
+    color:#475569;
 }
 
 
+/* ================= STATS ================= */
 
-/* ================= RESPONSIVE ================= */
 
-@media(max-width:900px){
-  .playlist-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .subscribe h2 {
-    font-size: 30px;
-  }
+.stats-section{
+    padding:55px 0;
+    background:white;
 }
 
-/* ================= VIDEO LINK FIX ================= */
+.stats-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:22px;
+    max-width:1120px;
+    margin:auto;
+}
 
-/* Make entire card clickable without breaking design */
-.video-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+.stat{
+    background:white;
+    padding:28px 20px;
+    min-height:220px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:
+    0 8px 18px
+    rgba(0,0,0,.04);
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:
+    translateY(-5px);
+    box-shadow:
+    0 14px 28px
+    rgba(0,0,0,.08);
+}
+
+.stat-icon{
+    display:block;
+    font-size:46px;
+    margin-bottom:18px;
 }
 
 
-/* ================= FILTER ANIMATION ================= */
+/* ICON COLORS */
 
-/* Smooth hide/show */
-.video-card {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.stat-icon.red{
+    color:#ef4444;
 }
 
-.video-card.hide {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
+.stat-icon.blue{
+    color:#2563eb;
+}
+
+.stat-icon.green{
+    color:#16a34a;
+}
+
+.stat-icon.purple{
+    color:#9333ea;
 }
 
 
-/* ================= CATEGORY BUTTON HOVER ================= */
-
-.category-buttons button:hover {
-  background: #dc2626;
-  color: white;
-  border-color: #dc2626;
+.stat h3{
+    font-size:30px;
+    font-weight:700;
+    line-height:1;
+    margin-bottom:14px;
+    color:#0f172a;
 }
 
-/* SEARCH BOX */
-.search-box {
-  text-align: center;
-  margin-bottom: 20px;
+.stat p{
+    font-size:15px;
+    color:#64748b;
+    margin:0;
 }
 
-.search-box input {
-  width: 300px;
-  max-width: 90%;
-  padding: 10px 15px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  outline: none;
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.stats-grid{
+    grid-template-columns:
+    repeat(2,1fr);
 }
 
-.search-box input:focus {
-  border-color: #dc2626;
 }
 
-/* Highlight search text */
-mark {
-  background: #fde047;
-  color: #000;
-  padding: 2px 4px;
-  border-radius: 4px;
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.stats-grid{
+    grid-template-columns:1fr;
 }
 
-/* ================= RESPONSIVE FIXES ================= */
-
-/* Tablet */
-@media(max-width: 900px) {
-  .video-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+.stat{
+    min-height:190px;
+    padding:24px 18px;
 }
 
-/* Mobile */
-@media(max-width: 600px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
+.stat h3{
+    font-size:26px;
+}
 
-  .category-buttons {
-    flex-wrap: wrap;
-  }
+.stat-icon{
+    font-size:40px;
+}
 
-  .youtube-header h1 {
-    font-size: 32px;
-  }
+}
+
+/* ================= CATEGORY ================= */
+
+.category-section{
+    padding:35px 0;
+    background:#f8fafc;
+}
+
+.category-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.category-buttons a{
+    padding:14px 30px;
+    border-radius:30px;
+    background:white;
+    border:1px solid #dbe2ea;
+    text-decoration:none;
+    color:#334155;
+    font-size:17px;
+    transition:.3s;
+}
+
+.category-buttons a:hover{
+    background:#f3f4f6;
+}
+
+.category-buttons a.active{
+    background:#ef4444;
+    color:white;
+    border-color:#ef4444;
+}
+
+
+/* ================= VIDEO GRID ================= */
+
+.video-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+    gap:30px;
+}
+
+.video-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.video-card:hover{
+    transform:
+    translateY(-8px);
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.08);
+}
+
+.thumb{
+    position:relative;
+}
+
+.thumb img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    display:block;
+}
+
+.category{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:#ef4444;
+    color:white;
+    padding:7px 14px;
+    border-radius:10px;
+    font-size:12px;
+}
+
+.duration{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    background:black;
+    color:white;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:12px;
+}
+
+.video-info{
+    padding:24px;
+}
+
+.video-info h3{
+    margin-bottom:12px;
+    font-size:20px;
+    line-height:1.5;
+}
+
+.video-info p{
+    color:#64748b;
+    line-height:1.7;
+    margin-bottom:12px;
+}
+
+
+/* ================= SUBSCRIBE ================= */
+
+.subscribe{
+    background:
+    linear-gradient(
+    135deg,
+    #ef4444,
+    #ec4899
+    );
+    padding:70px 0;
+    text-align:center;
+    color:white;
+}
+
+.subscribe-icon{
+    display:block;
+    font-size:76px;
+    margin-bottom:30px;
+}
+
+.subscribe h2{
+    font-size:52px;
+    margin-bottom:22px;
+}
+
+.subscribe p{
+    max-width:900px;
+    margin:auto auto 40px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.subscribe-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:white;
+    color:#ef4444;
+    padding:18px 42px;
+    border-radius:14px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+}
+
+.subscribe-btn i{
+    font-size:24px;
+}
+
+
+/* ================= PLAYLIST ================= */
+
+.playlist-section{
+    padding:100px 0;
+    background:
+    linear-gradient(
+    to bottom,
+    #f8fafc,
+    #eef2ff
+    );
+}
+
+.section-title{
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:60px;
+}
+
+.playlist-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+    gap:30px;
+}
+
+.playlist-card{
+    background:white;
+    padding:32px;
+    border-radius:20px;
+    min-height:240px;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.playlist-card:hover{
+    transform:
+    translateY(-8px);
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.08);
+}
+
+.playlist-icon{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:24px;
+}
+
+.playlist-card:nth-child(1) .playlist-icon{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.playlist-card:nth-child(2) .playlist-icon{
+    background:#dbeafe;
+    color:#2563eb;
+}
+
+.playlist-card:nth-child(3) .playlist-icon{
+    background:#f3e8ff;
+    color:#9333ea;
+}
+
+.playlist-icon i{
+    font-size:32px;
+}
+
+.playlist-card h3{
+    margin-bottom:14px;
+}
+
+.playlist-card p{
+    color:#64748b;
+    line-height:1.7;
+    margin-bottom:24px;
+}
+
+.playlist-btn{
+    display:inline-block;
+    background:
+    linear-gradient(
+    135deg,
+    #ef4444,
+    #ec4899
+    );
+    color:white;
+    padding:12px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+
+/* ================= TABLET ================= */
+
+@media(max-width:992px){
+
+.video-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.playlist-grid{
+    grid-template-columns:1fr;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.youtube-header h1{
+    font-size:48px;
+}
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.youtube-header{
+    min-height:280px;
+    padding:50px 20px;
+}
+
+.youtube-header h1{
+    flex-direction:column;
+    font-size:36px;
+}
+
+.youtube-main-icon{
+    font-size:44px;
+}
+
+.video-grid,
+.stats-grid,
+.playlist-grid{
+    grid-template-columns:1fr;
+}
+
+.subscribe h2{
+    font-size:34px;
+}
+
+.subscribe-icon{
+    font-size:56px;
+}
+
 }

@@ -1,24 +1,40 @@
 from django.shortcuts import render
-
-from ytdata.models import YouTubePage, VideoStatistic, VideoCategory, Video, Playlist
+from .models import YouTubePage, Video
+from common.models import Page
 
 
 def youtube(request):
-    page_obj = YouTubePage.objects.prefetch_related(
-        "statistics",
-        "categories__videos",
-        "playlists"
-    ).first()
-
-    videos = Video.objects.select_related("category").all()
-
+    page = Page.objects.get(slug = 'youtube')
+    video_page = YouTubePage.objects.prefetch_related("statistics","categories__videos","playlists").first()
+    
+    if not video_page:
+        return render(request, "youtube.html", {})    
+    
+    # Get category from URL
+    
+    category_slug = request.GET.get("category")
+    
+    if category_slug:
+        filtered_videos = Video.objects.filter(
+            category__slug = category_slug,
+            category__video_page = video_page
+        )
+    
+    else:
+        filtered_videos = Video.objects.filter(
+            category__video_page = video_page
+        )
+        
+        
+    featured = filtered_videos.filter(is_featured = True).order_by("-id").first()    
+    
     context = {
-        "youtube_page": page_obj,
-        "stats": page_obj.statistics.all(),
-        "categories": page_obj.categories.all(),
-        "videos": videos,
-        "playlists": page_obj.playlists.all(),
+        "page" : page,
+        "video": video_page,
+        "video_stats": video_page.statistics.all(),
+        "categories": video_page.categories.all(),
+        "playlists": video_page.playlists.all(),
+        "filtered_videos": filtered_videos,
+        "featured": featured,
     }
-
-    return render(request, "youtube.html", context)
-    # return render(request, "youtube_dynamic.html", context)
+    return render(request, "youtube.html",context)
