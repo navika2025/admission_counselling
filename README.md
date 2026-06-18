@@ -38,30 +38,30 @@ admission_counselling/
 
 ⚙️ Installation & Setup
 1. Clone the repository
-git clone https://github.com/navika2025/admission_counselling.git
+    git clone https://github.com/navika2025/admission_counselling.git
 cd admission_counselling
 
 3. Create virtual environment
-python -m venv .venv
+    python -m venv .venv
 
 Activate:
 Windows
-.venv\Scripts\activate
+    .venv\Scripts\activate
 
 3. Install dependencies
-pip install -r requirements.txt
+   pip install -r requirements.txt
 
 5. Run migrations
-python manage.py migrate
+    python manage.py migrate
 
 7. Create superuser (optional)
-python manage.py createsuperuser
+    python manage.py createsuperuser
 
 9. Run server
-python manage.py runserver
+    python manage.py runserver
 
 🌐 Open in browser
-http://127.0.0.1:8000/
+    http://127.0.0.1:8000/
 
 
 
